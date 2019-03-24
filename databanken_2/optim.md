@@ -57,8 +57,11 @@ order by 1,2,3,4
 ```
 
 ## opgave
-
+Geef alle spelers die alfabetisch (dus naam en voorletters, in deze volgorde) voor speler 8 staan. Sorteer van voor naar achter. 
+Probeer zo goed of beter te doen dan "Sort (cost=24.31..24.47 rows=67 width=88)"
 ## oplossing
 ```sql
-
+select spelersnr, naam, voorletters, geb_datum
+from spelers where naam < (select naam from spelers where spelersnr = 8)
+order by 1,2,3,4
 ```
