@@ -28,5 +28,11 @@ having count(reisnr) = 5
 Maak een lijst met klantgegevens van de personen die nog nooit op Phobos op bezoek geweest zijn. Maak expliciet gebruik van de 'uitgezonderd' set operator. (Is dit de meest efficiënte oplossing?) Sorteer van voor naar achter.
 ## oplossing
 ```sql
-
+select klantnr, naam, vnaam
+from klanten
+except
+select klantnr, naam, vnaam
+from bezoeken inner join deelnames using(reisnr) inner join klanten using(klantnr)
+where objectnaam like 'Phobos'
+order by 1,2,3
 ```
