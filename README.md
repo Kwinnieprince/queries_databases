@@ -8,7 +8,7 @@ If you want to contribute or if you have a better solution, please create a pull
 
 ## Table of contents
 
-> [databanken_1](https://github.com/Kwinnieprince/queries_databases/tree/master/databanken_1)
+> [**databanken_1**](https://github.com/Kwinnieprince/queries_databases/tree/master/databanken_1)
 > > [extra_1.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_1/extra_1.md)
 > >
 > >
@@ -35,7 +35,7 @@ If you want to contribute or if you have a better solution, please create a pull
 > >
 > > [subq_2.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_1/subq_2.md)
 
-> [databanken_2](https://github.com/Kwinnieprince/queries_databases/tree/master/databanken_2)
+> [**databanken_2**](https://github.com/Kwinnieprince/queries_databases/tree/master/databanken_2)
 > > [extra_3.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/extra_3.md)
 > >
 > >
@@ -49,6 +49,8 @@ If you want to contribute or if you have a better solution, please create a pull
 > >
 > >
 > > [subq_2_verbreding.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/subq_2_verbreding.md)
+> > > [**Excercises Projektwerk**](https://github.com/Kwinnieprince/queries_databases/tree/master/databanken_2/oefeningen_projektwerk)
+> > >
 > > > [02_3_index_geolute.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/02_3_index_geolute.md)
 > > >
 > > > [04_3_chinook_media.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/02_3_index_geolite.md)
