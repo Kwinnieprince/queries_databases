@@ -49,3 +49,20 @@ If you want to contribute or if you have a better solution, please create a pull
 > >
 > >
 > > [subq_2_verbreding.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/subq_2_verbreding.md)
+> > > [02_3_index_geolute.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/02_3_index_geolute.md)
+> > >
+> > > [04_3_chinook_media.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/02_3_index_geolite.md)
+> > >
+> > > [05_4_procedurele_SQL_oef.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/05_4_procedurele_SQL_oef.md)
+> > >
+> > > [05_5_procedurele_SQL_trigger_oef.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/05_5_procedurele_SQL_trigger_oef.md)
+> > >
+> > >[06_4_view_sp_triggers_performantie.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/06_4_view_sp_triggers_performantie.md)
+> > >
+> > >[07_2_psql_optioneel_oef.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/07_2_psql_optioneel_oef.md)
+> > >
+> > >[08_3_CTEs_oefeningen.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/08_3_CTEs_oefeningen.md)
+> > >
+> > >[09_6_ORDBMS_oef.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/09_6_ORDBMS_oef.md)
+> > >
+> > >[10_5_XML_oef.md](https://github.com/Kwinnieprince/queries_databases/blob/master/databanken_2/oefeningen_projektwerk/10_5_XML_oef.md)
