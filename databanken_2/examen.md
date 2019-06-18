@@ -176,5 +176,186 @@ Wat is het nut ervan bij NoSQL databses?
 
 1. Wat is redundantie? Hoe gaan we hiermee om in een RDBMS? Wat is de aangewezen manier van werken? Leg uit dat je duidelijk 'de kracht' van het juist gebruik hiervan begrijpt.
 
-* Redundantie is het meer dan benodigd voorkomen van data, dit wilt zeggen dat data meerdere keren is opgeslagen.
-* In RDBMS kunnen we data gaan uitnoemaliseren. Dit wilt zeggen dat we regels gaan implementeren zodat data maar 1 keer opgeslagen zal worden en dat de database duidelijk blijft.
+    >   * Redundantie is het meer dan benodigd voorkomen van data, dit wilt      zeggen dat data meerdere keren is opgeslagen.
+    >  * In RDBMS kunnen we data gaan uitnoemaliseren. Dit wilt zeggen dat we regels gaan implementeren zodat data maar 1 keer opgeslagen zal worden en dat de database duidelijk blijft.
+
+2. Wat is een cartesisch product? Wat moet je meestal doen om dit te vermijden?
+
+    >   Een caresisch product of de productverzameling van 2 verzamelingen: de verzameling van alle koppels of geordende paren waarvan het eerste element uit de eerste verzameling en het tweede uit de tweede verzameling komt.
+    >
+    >   * Om dit te vermijden gebruiken we expliciete joins of aangeven als we excliciet een carthesis  product willen  met CROSS JOIN
+
+3. Wat is een niet-gecorreleerde subquery?
+
+    > Een niet-gecorreleerde query wordt exact 1 keer uitgevoerd en het resultaat kan gebruikt worden in de bovenliggende query
+
+4. Wat is het verschil tussen een gecorreleerde subquery en een niet gecorreleerde subquery?
+
+    > Een niet-gecorreleerde query wordt exact 1 keer uitgevoerd en het resultaat kan gebruikt worden in de bovenliggende query. Een gecorreleerde subquery wordt meerdere keren uitgevoerd en geeft telkens 1 rij terug aan de boveliggende query
+
+5. Wat is het verschil tussen condities in de WHERE en de FROM
+
+    > In de FROM component wordt geselecteerd welke tabellen er geraadpleegd moeten worden. In de WHERE component kunnen er regels op de data gesteld worden die getoond zal worden.
+
+6. Geef een zinnig voorbeeld van een theta join en leg uit.
+
+    > Algemene of theta join is de verzameling van equi- en non-equi-joins
+    > ```sql
+    > SELECT *
+    > FROM spelers, teams
+    > WHERE spelers.spelersnr ? teams.spelersnr
+
+7. Welke set-operatoren ken je en wat doen ze (kort)?
+
+    > UNION
+    > * plakt rijen onder elkaar
+    >>
+    > INTERSECT
+    > * Deze geeft alleen de resultaten weer die in beide tabelexpressies voorkomen &rarr; dit is ookwel de *doorsnede* genoemd
+    >>
+    > EXCEPT
+    > * Deze geeft waarden terug die **wel** in de eerste tabelexpressie voorkomen maar **niet** in de tweede &rarr; dit wordt ookwel het verschil genoemd
+    >>
+    > UNION ALL
+    > * Zelfde als union maar behoudt ook alle dubbele waarden
+    >>
+    >  INTERSECT ALL
+    > * zelfde als intersect maar behoudt ook alle dubbele waarden
+    > >
+    > EXCEPT ALL
+    > * Zelfde als except maar alle dubbels worden behouden
+
+8. Waar dient LC_COLLATE voor en waarom kan dit belangrijk zijn?
+
+    > er wordt gesorteerd eerst op uppercase en dan lowercase
+
+9. Hoe kan je een constraint van de tabel verwijderen?
+
+    > Met een alter table en dan drop constraint
+    >
+    > ```sql
+    > ALTER TABLE <TABLE_NAME> 
+    > DROP CONSTRAINT <FOREIGN_KEY_NAME>
+    >```
+
+10. Geef een alternatief voor de LIKE operator en geef enkele voorbeelden van wat dit alternatief meer kan.
+
+    > ILIKE &rarr; dit kan regex en heeft geen invloed op hoofdletters. ILIKE is niet hoofdlettergevoelig
+
+11. Leg uit: "connection pooling client side" met tekst en tekening.
+
+12. Welke types van connecties kan je maken naar database vanuit een programmeertaal?
+
+    > Een database connectie
+
+13. Waarom kan het gebruik van een genereerde serial id gevaarlijk zijn?
+
+    > Deze kan een getal zijn dat niet gewenst / gekend is door het bovenliggende programma.
+
+14. Een querie met de volgende elementen:(S F W G H en 1 of meer subqueries).
+
+15. Wat is een segmenttype?
+
+16. Wat typeert een netwerk databank?
+
+    > Dat deze een API heeft waarnaar gequeried kan worden
+
+17. Geef een voorbeeld van een CTE met recursie.(zie slides)
+
+18. Geef een alternatief met gecorreleerde subqueries om een beperkt deel van de resultaten te tonen (cf het limiteren van resultaten)
+
+    > ```sql
+    > SELECT spelersnr, naam, geboortedaatum
+    > FROM spelers p
+    > ORDER BY geboortedatum DESC
+    > FETCH FIRST 3 ROWS ONLY;
+    >```
+
+19. Wat is het verschil tussen een string literal en een identifier?
+
+    > Een string literal is een string die hetzelde is als een functiestring
+
+20. Geef een alternatieve oplossing voor deze query (GROUP BY GROUPING SETS..)
+
+21. Waarom maken we niet op elke kolom per definitie een INDEX?
+
+    > Soms zijn indexen  overbodig als de kolom heel klein is of als de queries die uitgevoerd zullen worden meestal zonder index uitgevoerd worden. Dan is het maken van een index pure plaatsverspilling op de schijf van de databank
+
+22. Stelling: "Het gebruik van JOINS is steeds beter dan het gebruik van subqueries". Kies een standpunt en verdedig helder.
+
+23. Waarvoor kan je VIEWS gebruiken?
+
+    > Het lijkt net alsof dat de gebruiker op een tabel aan het werken is maar dit is in werkelijkheid niet zo. Hierdoor is het makkelijk om bepaalde gegevens af te schermen en te beviligen
+
+24. Wat is SQL injectie (injection) en hoe kan je dit vermijden?
+
+    > Dat er SQL code uitgevoerd wordt op de server dat niet de bedoeling was. Je kan dit in programma's tegengaan door prepared statements te maken.
+
+25. Wat zijn transacties?
+
+    > Een transactie propageert 1 of meerdere veranderingen aan de database. Bijvoorbeeld het verwijderen of updaten van een kolom. Het is dus belangrijk dat de data niet verloren gaat of dat andere mensen deze op hetzelfde moment aanpassen. Door een transactie wordt een *lock* geplaatst waardoor niemand anders de data kan aanpassen op het moment dat de transactie uitgevoerd wordt
+
+26. Geef een voorbeeld van embedded sql.
+
+    >```c++
+    >int main() {  
+    >  EXEC SQL INCLUDE SQLCA;  
+    > EXEC SQL BEGIN DECLARE SECTION;  
+    >  int OrderID;         /* Employee ID (from user)         */  
+    >  int CustID;            /* Retrieved customer ID         */  
+    >  char SalesPerson[10]   /* Retrieved salesperson name      */  
+    >  char Status[6]         /* Retrieved order status        */  
+    >EXEC SQL END DECLARE SECTION;  
+    >
+    > /* Set up error processing */  
+    >EXEC SQL WHENEVER SQLERROR GOTO query_error;  
+    >EXEC SQL WHENEVER NOT FOUND GOTO bad_number;  
+    >
+    >/* Prompt the user for order number */  
+    >printf ("Enter order number: ");  
+    >scanf_s("%d", &OrderID);  
+    >
+    >/* Execute the SQL query */  
+    >EXEC SQL SELECT CustID, SalesPerson, Status  
+    >  FROM Orders  
+    >  WHERE OrderID = :OrderID  
+    >  INTO :CustID, :SalesPerson, :Status;  
+    >
+    >/* Display the results */  
+    >printf ("Customer number:  %d\n", CustID);  
+    >printf ("Salesperson: %s\n", SalesPerson);  
+    >printf ("Status: %s\n", Status);  
+    >exit();  
+    >
+    >query_error:  
+    >printf ("SQL error: %ld\n", sqlca->sqlcode);  
+    >exit();  
+    >
+    >bad_number:  
+    >printf ("Invalid order number.\n");  
+    >exit();  
+    >}
+    >```
+
+27. Waarvoor kunnen we TRIGGERS gebruiken?
+
+    > Om integriteitsregels te controleren of informatie in de database aan te passen als er iets geüpdate of ge-insert wordt
+
+28. Geef de typische kenmerken van een ODMS.
+
+29. Wat zijn RULES? Geef een voorbeeld.
+
+30. Stelling: "We hebben geen databanken nodig, we kunnen alles met XML."Kies een standpunt en verdedig helder.
+
+31. Geef een voorbeeld van een NoSQL product en filosofie.
+
+    > MongoDB &rarr; NoSQL is makkelijk te schalen en leveren betere performantie dan traditionele relationele databases
+
+32. Stelling:"PostgreSQL is de relationele database in alle omstandigheden, we kunne ze voor alles gebruiken" Kies een standpunt en verdedig helder.
+
+33. Wat is het verschil tussen een venster en een groepering?
+
+    > Groepering &rarr; doet de ordering in de groep
+    > Venster &rarr; de group by functie wordt uitgevoerd voor de vensterfunctie
+
+34. Geef een voorbeeld van een cumulatieve frequentietabel met een theta join enerzijds en een venster anderzijds. Welke is het meest performant, hoe kan je dit controleren?
