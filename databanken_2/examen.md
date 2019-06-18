@@ -149,14 +149,20 @@ Wat is het nut ervan bij NoSQL databses?
     * Geef aan of je akkoord bent of niet. En leg duidelijk en bondig uit waarom. De punten staan op de uitleg bij je keuze, niet op de keuze zelf. Je kan in je uitleg een voorbeel/afbeelding gebruiken. Stelling: Bij het uitnormaliseren moeten de vreemde sleutels altijd in de primaire sleutel zitten.
 
     ```sql
+    neen,
+    bij uitnormaliseren proberen we redundantie te voorkomen, het gebruik van foreign keys zorgt ervoor dat er enkel naar geldige waardes verwezen kan worden.
+    dit maakt het uitnormaliseren eenvoudiger en overzichtelijker
+    ```
+
+    * Gegeven
+    ```sql
     Gegeven: <Een CREATE statement en 3 querries>
 	Elke querrie heeft dezelfde SELECT en FROM
 	Q1:	WHERE id = 123456789;
 	Q2:	WHERE passhash = 'erygufhvsbldjkn5bgsfd85bguyrhvnl'; (passhash is een charachter(32)
 	Q3:	WHERE registered = <een tijdsmoment>; (het tijdsmoment is het tijdsmoment van de eerste registratie)
     ```
-
-    * We zijn op zoek naar de snelste querie. Welk van de volgende antwoorden is/zijn waar op de meeste RDBMSn?
+    We zijn op zoek naar de snelste querie. Welk van de volgende antwoorden is/zijn waar op de meeste RDBMSn?
     Elk antwoord is hier juist of fout.
 
         * Q1 waarschijnlijk niet want het id is zeer hoog, het staat waarschijnlijk fysisch niet in het begin van de tabel.
@@ -165,3 +171,10 @@ Wat is het nut ervan bij NoSQL databses?
         * Q2 waarschijnlijk wel want door middel van hashes worden data sneller gevonden. Zoals in een hsh tabel of lijst.
         * Q3 waarschijnlijk niet want een tijdsmoment is een ingewikkeld samengesteld datatype.
         * Q3 waarschijnlijk wel want de eerste gebruiker werd toen geregistreerd, het staat waarschijnlijk fysisch in het begin van de tabel.
+
+# voorbeeldexamen
+
+1. Wat is redundantie? Hoe gaan we hiermee om in een RDBMS? Wat is de aangewezen manier van werken? Leg uit dat je duidelijk 'de kracht' van het juist gebruik hiervan begrijpt.
+
+* Redundantie is het meer dan benodigd voorkomen van data, dit wilt zeggen dat data meerdere keren is opgeslagen.
+* In RDBMS kunnen we data gaan uitnoemaliseren. Dit wilt zeggen dat we regels gaan implementeren zodat data maar 1 keer opgeslagen zal worden en dat de database duidelijk blijft.
