@@ -59,8 +59,13 @@ select delete_after_10_days();
 Schrijf een functie die drie getallen optelt en teruggeeft.
 
 ## Oplossing
-
-
+```sql
+CREATE FUNCTION count_to_three(getal1 int, getal2 int, getal3 int) returns int AS
+    '
+    select getal1 + getal2 + getal3
+    '
+LANGUAGE sql ;
+```
 
 ## Oefening
 Geef 3 mogelijke procedurale talen op postgresql en vind een overeenkomst met een ander software pakket (dbsoftware) op minstens 1 van die procedurale talen.
