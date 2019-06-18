@@ -28,6 +28,8 @@ Wat is het nut ervan bij NoSQL databses?
 
         * BASE &rarr; Basically Available, Soft state en Eventually consistent
 
+## Oefeningen
+
 2. Schrijf een veilig script dat de in_uitgave tabel wijzigt door een nieuwe kolom bedrag_met_teken toe te voegen en dat de desbetreffende info dan bevat. Daarnaast heeft het nieuwe beleid een exra view nodig.
 
     * Veilig: gebruik een transactie waarbij de andere gebruikers met zo weinig mogelijk wachtproblemen da databank kunnen blijven gebruiken. Dus met de hoogst mogelijke gelijktijdigheid.
@@ -140,7 +142,7 @@ Wat is het nut ervan bij NoSQL databses?
     insert into in_uitgaves(inkomsten, usernames) values(6, 'Griet');
     ```
 
-    
+## Theorie
 
 4. Geef conceptueel de volgorde van de bewerkingen in de select instruktie met alle komponenten die we gezien hebben.
 
