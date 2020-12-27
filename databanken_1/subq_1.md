@@ -91,3 +91,16 @@ from spelers inner join (select (jaartoe - extract(year from geb_datum)) as toet
 where toetredingsleeftijd > 20
 order by 1,2,3,4
 ```
+
+## opgave
+Geef een lijst van alle spelers (spelersnr en woonplaats) die met minstens twee in dezelfde plaats wonen. Sorteer aflopend op woonplaats, daarna op spelersnr.
+## oplossing
+```sql
+SELECT spelersnr, plaats
+FROM spelers
+WHERE plaats in (SELECT plaats
+	FROM spelers
+	GROUP BY plaats
+	HAVING count(plaats) >= 2)
+ORDER BY plaats DESC, spelersnr ASC
+```
