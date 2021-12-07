@@ -5,9 +5,10 @@ Geef een overzicht van alle spelers, gevolgd door alle bestuursleden, gesorteerd
 Geen dubbels tonen.
 ## oplossing
 ```sql
+select spelersnr as veld1, naam as veld2, jaartoe as veld3
 from spelers
 union
-select spelersnr , functie , extract(YEAR from date(begin_datum))
+select spelersnr, functie, extract(YEAR from date(begin_datum))
 from bestuursleden
 order by veld3, veld1
 ```
@@ -71,6 +72,21 @@ union
 select null, null, null, count(distinct functie)::text
 from bestuursleden
 order by boetebedrag, aantalgewonnen, aantalverloren, aantalfuncties
+```
+
+## opgave
+Geef de spelersnummers die minstens één keer bestuurslid zijn geweest.
+Gebruik hiervoor geen JOIN, DISTINCT, GROUP BY, IN, ANY, ALL of EXISTS.
+Sorteer op spelersnr
+## oplossing
+```sql
+select spelers.spelersnr
+from spelers, bestuursleden
+where spelers.spelersnr = bestuursleden.spelersnr
+intersect
+select spelers.spelersnr
+from spelers
+order by spelersnr
 ```
 
 ## opgave
