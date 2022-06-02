@@ -72,7 +72,7 @@ Geef voor elke reis het aantal klanten waarvan de naam niet met een 'G' begint e
 Indien er op de reis hemelobjecten worden bezocht waarvan de tweede letter van het hemelobject voorkomt in de naam van het hemelobject waarvan dit bezocht hemelobject een satelliet is, dan wordt deze reis genegeerd.
 Sorteer op reisnr.
 
-# oplossing
+## oplossing
 
 ```sql
 select r.reisnr, count(k.klantnr)
